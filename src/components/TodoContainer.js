@@ -31,7 +31,7 @@ class TodoContainer extends Component {
   };
 
   addTodoItem = (title) => {
-    const newTodo = { id: 4, title: title, completed: false };
+    const newTodo = { id: uuidv4(), title: title, completed: false };
     this.setState({ todos: [...this.state.todos, newTodo] });
   };
 
