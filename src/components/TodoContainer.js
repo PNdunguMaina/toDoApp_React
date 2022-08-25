@@ -16,11 +16,6 @@ class TodoContainer extends Component {
     };
   }
 
-  addTodoItem = (title) => {
-    const newTodo = { id: uuidv4(), title, completed: false };
-    this.setState({ todos: [...this.state.todos, newTodo] });
-  };
-
   setUpdate = (updatedTitle, id) => {
     this.setState({
       todos: this.state.todos.map((todo) => {
@@ -48,6 +43,11 @@ class TodoContainer extends Component {
       localStorage.setItem('todos', temp);
     }
   }
+
+  addTodoItem = (title) => {
+    const newTodo = { id: uuidv4(), title, completed: false };
+    this.setState({ todos: [...this.state.todos, newTodo] });
+  };
 
   delTodo = (id) => {
     this.setState({
