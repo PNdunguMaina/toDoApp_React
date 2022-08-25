@@ -16,17 +16,6 @@ class TodoContainer extends Component {
     };
   }
 
-  setUpdate = (updatedTitle, id) => {
-    this.setState({
-      todos: this.state.todos.map((todo) => {
-        if (todo.id === id) {
-          todo.title = updatedTitle;
-        }
-        return todo;
-      }),
-    });
-  };
-
   componentDidMount() {
     const temp = localStorage.getItem('todos');
     const loadedTodos = JSON.parse(temp);
@@ -56,6 +45,17 @@ class TodoContainer extends Component {
           return todo.id !== id;
         }),
       ],
+    });
+  };
+
+  setUpdate = (updatedTitle, id) => {
+    this.setState({
+      todos: this.state.todos.map((todo) => {
+        if (todo.id === id) {
+          todo.title = updatedTitle;
+        }
+        return todo;
+      }),
     });
   };
 
