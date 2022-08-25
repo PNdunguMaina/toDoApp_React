@@ -16,18 +16,8 @@ class TodoContainer extends Component {
     };
   }
 
-  delTodo = (id) => {
-    this.setState({
-      todos: [
-        ...this.state.todos.filter((todo) => {
-          return todo.id !== id;
-        }),
-      ],
-    });
-  };
-
   addTodoItem = (title) => {
-    const newTodo = { id: uuidv4(), title: title, completed: false };
+    const newTodo = { id: uuidv4(), title, completed: false };
     this.setState({ todos: [...this.state.todos, newTodo] });
   };
 
@@ -58,6 +48,16 @@ class TodoContainer extends Component {
       localStorage.setItem('todos', temp);
     }
   }
+
+  delTodo = (id) => {
+    this.setState({
+      todos: [
+        ...this.state.todos.filter((todo) => {
+          return todo.id !== id;
+        }),
+      ],
+    });
+  };
 
   handleChange = (id) => {
     this.setState((prevState) => ({

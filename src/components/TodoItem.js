@@ -11,15 +11,15 @@ class TodoItem extends Component {
     };
   }
 
+  componentWillUnmount() {
+    return 'Cleaning up...';
+  }
+
   handleUpdatedDone = (event) => {
     if (event.key === 'Enter') {
       this.setState({ editing: false });
     }
   };
-
-  componentWillUnmount() {
-    return 'Cleaning up...';
-  }
 
   handleEditing = () => {
     this.setState({
