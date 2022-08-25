@@ -1,9 +1,16 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable no-alert */
 import React, { Component } from 'react';
 
 class InputTodo extends Component {
-  state = {
-    title: '',
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: '',
+    };
+  }
+
   onChange = (e) => {
     this.setState({ title: e.target.value });
   };
@@ -31,7 +38,9 @@ class InputTodo extends Component {
           name="title"
           onChange={this.onChange}
         />
-        <button className="input-submit">Submit</button>
+        <button type="submit" className="input-submit">
+          Submit
+        </button>
       </form>
     );
   }

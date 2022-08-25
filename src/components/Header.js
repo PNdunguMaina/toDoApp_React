@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Header = (props) => {
+const Header = () => {
   const headerStyle = {
     padding: '20px 0',
     lineHeight: '1.5em',

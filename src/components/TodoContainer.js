@@ -1,24 +1,20 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/no-access-state-in-setstate */
+/* eslint-disable arrow-body-style */
+/* eslint-disable no-param-reassign */
 import React, { Component } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import TodosList from './TodosList';
 import Header from './Header';
 import InputTodo from './InputTodo';
-import { v4 as uuidv4 } from 'uuid';
 
 class TodoContainer extends Component {
-  state = {
-    todos: [],
-  };
-
-  handleChange = (id) => {
-    this.setState((prevState) => ({
-      todos: prevState.todos.map((todo) => {
-        if (todo.id === id) {
-          return { ...todo, completed: !todo.completed };
-        }
-        return todo;
-      }),
-    }));
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      todos: [],
+    };
+  }
 
   delTodo = (id) => {
     this.setState({
@@ -62,6 +58,17 @@ class TodoContainer extends Component {
       localStorage.setItem('todos', temp);
     }
   }
+
+  handleChange = (id) => {
+    this.setState((prevState) => ({
+      todos: prevState.todos.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, completed: !todo.completed };
+        }
+        return todo;
+      }),
+    }));
+  };
 
   render() {
     return (
